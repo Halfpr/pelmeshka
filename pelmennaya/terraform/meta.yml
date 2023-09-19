@@ -1,0 +1,11 @@
+#cloud-config
+users:
+  - name: momostore
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCQxX5i9AfEbwPLmpJ/eURk4MqV5YDGuKMcI03IRyQuecGYwzcRQEQZCge51BXONboX+QMIyhkn3aGEUmdfszMD8pASSPbDbGHJGkvkm8K9ZBvTecXNxC+Wbzhc3s4Vi0jy88yUcM4BAsNC5E7vuvIBXq56QL6907SUOthh4qf6F7TpwL4Y35fXBah25l1JzfKKEu3u2dXHeqCRx67srjv7Rg2Xym/iSrCSnFvXni2VoO/YZJwX05FkuRJFujlK1mDr0SlVdE8tGtnNRl8bmeoitxNXWJ7m0PSGWs97ci9Mt+mvXsHbkm0js5oSjgRh2gwf33r/Uzb4V9d5uGOg0at7KLYxGUVXKkiACE3G9OPv0XgQ6SzXDDTGDku+E7Z6RqP7ejXMKTEd/477bQt5WDp3GOi5yHNtOm8jTg4PfZgv4oqTZglDwk2Z+aWhyD5EYwZXCWgpoQSxBEhBxC9r8nNra/EQe+zspWMCGjerfHYRcBaVCANySIAGZLWtWUs3SI8=
+groups:
+  - name: momostore
+    users: momostore

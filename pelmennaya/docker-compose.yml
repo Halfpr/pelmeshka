@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  backend:
+    image: gitlab.praktikum-services.ru:5050/std-015-31/pelmennaya/pelmennaya-backend:latest
+    container_name: backend    
+    restart: always    
+    ports:
+      - "8081:8081"  
+    healthcheck:
+      test: curl --fail -s http://localhost:8081/health
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 60          
+    networks:
+      - momo-store
+    environment:
+      - VIRTUAL_HOST=momostore
+  frontend:
+    image: gitlab.praktikum-services.ru:5050/std-015-31/pelmennaya/pelmennaya-frontend:latest
+    container_name: frontend
+    restart: always
+    ports:
+      - "80:80"
+    healthcheck:
+      test: curl --fail -s http://localhost
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 60            
+    environment:
+      - DEFAULT_HOST=momostore      
+    networks:
+      - momo-store
+networks:
+  momo-store:
+    driver: bridge
+    external: true
